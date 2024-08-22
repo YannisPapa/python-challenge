@@ -27,12 +27,7 @@ with open(budget_data_csv) as csvfile:
 
         #skip the first line for some calculations
         if last_month != 0:
-
-            #check if its an increase or decrease
-            if last_month < int(row[1]):
-                changes.append(abs(last_month - int(row[1])))
-            else:
-                changes.append(-abs(last_month - int(row[1])))
+            changes.append(int(row[1]) - last_month)
             change_months.append(row[0])
         
         #store the profit/loss for next months calculation
